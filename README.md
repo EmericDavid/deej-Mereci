@@ -8,7 +8,7 @@ deej consists of a [lightweight desktop client](#features) written in Go, and an
 
 **[Download the latest release](https://github.com/omriharel/deej/releases/latest) | [Video demonstration](https://youtu.be/VoByJ4USMr8) | [Build video by Tech Always](https://youtu.be/x2yXbFiiAeI)**
 
-![deej](assets/build-3d-annotated.png)
+![deej](assets/mereci_deej.jpg)
 
 
 ## Features
@@ -39,7 +39,7 @@ deej is written in Go and [distributed](https://github.com/omriharel/deej/releas
 #### Schematic
 
 ![Hardware schematic](assets/schematic.png)
-![Mereci_schematic](assets/Mereci_schematic.png)
+![Mereci_schematic](assets/mereci_schematic.jpg)
 
 ### Software
 
