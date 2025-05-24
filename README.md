@@ -2,11 +2,7 @@
 
 deej is an **open-source hardware volume mixer** for Windows and Linux PCs. It lets you use real-life sliders (like a DJ!) to **seamlessly control the volumes of different apps** (such as your music player, the game you're playing and your voice chat session) without having to stop what you're doing.
 
-**Join the [deej Discord server](https://discord.gg/nf88NJu) if you need help or have any questions!**
-
-[![Discord](https://img.shields.io/discord/702940502038937667?logo=discord)](https://discord.gg/nf88NJu)
-
-> **_New:_** [work-in-progress deej FAQ](./docs/faq/faq.md)!
+ [**Original branch**](https://github.com/omriharel/deej)
 
 deej consists of a [lightweight desktop client](#features) written in Go, and an Arduino-based hardware setup that's simple and cheap to build. [**Check out some versions built by members of our community!**](./community.md)
 
@@ -14,28 +10,6 @@ deej consists of a [lightweight desktop client](#features) written in Go, and an
 
 ![deej](assets/build-3d-annotated.png)
 
-> _**Psst!** [No 3D printer? No problem!](./assets/build-shoebox.jpg)_ You can build deej on some cardboard, a shoebox or even a breadboard :)
-
-## Table of contents
-
-- [Features](#features)
-- [How it works](#how-it-works)
-  - [Hardware](#hardware)
-    - [Schematic](#schematic)
-  - [Software](#software)
-- [Slider mapping (configuration)](#slider-mapping-configuration)
-- [Build your own!](#build-your-own)
-  - [FAQ](#faq)
-  - [Build video](#build-video)
-  - [Bill of Materials](#bill-of-materials)
-  - [Thingiverse collection](#thingiverse-collection)
-  - [Build procedure](#build-procedure)
-- [How to run](#how-to-run)
-  - [Requirements](#requirements)
-  - [Download and installation](#download-and-installation)
-  - [Building from source](#building-from-source)
-- [Community](#community)
-- [License](#license)
 
 ## Features
 
@@ -65,6 +39,7 @@ deej is written in Go and [distributed](https://github.com/omriharel/deej/releas
 #### Schematic
 
 ![Hardware schematic](assets/schematic.png)
+![Mereci_schematic](assets/Mereci_schematic.png)
 
 ### Software
 
@@ -74,7 +49,7 @@ deej is written in Go and [distributed](https://github.com/omriharel/deej/releas
 
 You can find the arduino sketch [here](./arduino/deej-5-sliders-vanilla/deej-5-sliders-vanilla.ino).
 
-You will also need this library [Simple5641AS](./arduino/library/Simple5641AS.zip). It's a modified version of this repo of [adrian200223](https://github.com/adrian200223/Simple5641AS/tree/main)
+You will also need this library [Simple5641AS](./arduino/Simple5641AS.zip) that you will need to import inside the arduino IDE. It's a modified version of this repo of [adrian200223](https://github.com/adrian200223/Simple5641AS/tree/main)
 
 
 ## Slider mapping (configuration)
@@ -127,43 +102,18 @@ noise_reduction: default
     - control more than one app with a single slider
     - choose whichever process in the group that's currently running (i.e. to have one slider control any game you're playing)
 
-## Build your own!
-
-Building deej is very simple. You only need a few relatively cheap parts - it's an excellent starter project (and my first Arduino project, personally). Remember that if you need any help or have a question that's not answered here, you can always [join the deej Discord server](https://discord.gg/nf88NJu).
-
-Build deej for yourself, or as an awesome gift for your gaming buddies!
-
-### FAQ
-
-I've started a highly focused effort of writing a proper FAQ page for deej, covering many basic and advanced topics.
-
-It is still _very much a work-in-progress_, but I'm happy to [share it in its current state](./docs/faq/faq.md) in hopes that it at least covers some questions you might have.
-
-FAQ feedback in our [community Discord](https://discord.gg/nf88NJu) is strongly encouraged :)
-
-### Build video
-
-In case you prefer watching to reading, Charles from the [**Tech Always**](https://www.youtube.com/c/TechAlways) YouTube channel has made [**a fantastic video**](https://youtu.be/x2yXbFiiAeI) that covers the basics of building deej for yourself, including parts, costs, assembly and software. I highly recommend checking it out!
 
 ### Bill of Materials
 
-- An Arduino Nano, Pro Micro or Uno board
-  - I officially recommend using a Nano or a Pro Micro for their smaller form-factor, friendlier USB connectors and more analog pins. Plus they're cheaper
-  - You can also use any other development board that has a Serial over USB interface
-- A few slider potentiometers, up to your number of free analog pins (the cheaper ones cost around 1-2 USD each, and come with a standard 10K Ohm variable resistor. These _should_ work just fine for this project)
-  - **Important:** make sure to get **linear** sliders, not logarithmic ones! Check the product description
-  - You can also use circular knobs if you like
+- An Elegoo Uno (a clone of an arduino)
+- 5 slider [potentiometers](https://www.amazon.fr/dp/B081JNQ7MM). **It need to be linear**
+- a display 5641AS
 - Some wires
-- Any kind of box to hold everything together. **You don't need a 3D printer for this project!** It works fantastically with just a piece of cardboard or a shoebox. That being said, if you do have one, read on...
+- 3D print box
 
-### Thingiverse collection
+### 3D file
 
-With many different 3D-printed designs being added to our [community showcase](./community.md), it felt right to gather all of them in a Thingiverse collection for you to browse. If you have access to a 3D printer, feel free to use one of the designs in your build.
-
-**[Visit our community-created design collection on Thingiverse!](https://thingiverse.com/omriharel/collections/deej)**
-
-> You can also [submit your own](https://discord.gg/nf88NJu) design to be added to the collection. Regardless, if you do upload your design to Thingiverse, _please add a `deej` tag to it so that others can find it more easily_.
-
+You can get my model here : [https://cad.onshape.com/documents/e80aa95818774bfeb0580cb3/w/9b818ec70b5b3f36b3491992/e/4ca570df63ce161c7bcfb0b8?renderMode=0&uiState=68321144ff994d72c6150273](https://cad.onshape.com/documents/e80aa95818774bfeb0580cb3/w/9b818ec70b5b3f36b3491992/e/4ca570df63ce161c7bcfb0b8?renderMode=0&uiState=68321144ff994d72c6150273)
 
 ### Build procedure
 
