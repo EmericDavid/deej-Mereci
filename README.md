@@ -69,9 +69,13 @@ deej is written in Go and [distributed](https://github.com/omriharel/deej/releas
 ### Software
 
 - The code running on the Arduino board is a C program constantly writing current slider values over its serial interface
-You can find the arduino sketch here : [link](./arduino/deej-5-sliders-vanilla/deej-5-sliders-vanilla.ino) constantly writing current slider values over its serial interface
-You will also need this library [Simple5641AS](./arduino/library/Simple5641AS.zip). It's a modified version of this repo of [adrian200223](https://github.com/adrian200223/Simple5641AS/tree/main)
 - The PC runs a lightweight [Go client](./pkg/deej/cmd/main.go) in the background. This client reads the serial stream and adjusts app volumes according to the given configuration file
+
+
+You can find the arduino sketch [here](./arduino/deej-5-sliders-vanilla/deej-5-sliders-vanilla.ino).
+
+You will also need this library [Simple5641AS](./arduino/library/Simple5641AS.zip). It's a modified version of this repo of [adrian200223](https://github.com/adrian200223/Simple5641AS/tree/main)
+
 
 ## Slider mapping (configuration)
 
