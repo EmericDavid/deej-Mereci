@@ -68,7 +68,9 @@ deej is written in Go and [distributed](https://github.com/omriharel/deej/releas
 
 ### Software
 
-- The code running on the Arduino board is a [C program](./arduino/deej-5-sliders-vanilla/deej-5-sliders-vanilla.ino) constantly writing current slider values over its serial interface
+- The code running on the Arduino board is a C program constantly writing current slider values over its serial interface
+You can find the arduino sketch here : [link](./arduino/deej-5-sliders-vanilla/deej-5-sliders-vanilla.ino) constantly writing current slider values over its serial interface
+You will also need this library [Simple5641AS](./arduino/library/Simple5641AS.zip). It's a modified version of this repo of [adrian200223](https://github.com/adrian200223/Simple5641AS/tree/main)
 - The PC runs a lightweight [Go client](./pkg/deej/cmd/main.go) in the background. This client reads the serial stream and adjusts app volumes according to the given configuration file
 
 ## Slider mapping (configuration)
@@ -82,20 +84,26 @@ The config file determines which applications (and devices) are mapped to which 
 It looks like this:
 
 ```yaml
+# process names are case-insensitive
+# you can use 'master' to indicate the master channel, or a list of process names to create a group
+# you can use 'mic' to control your mic input level (uses the default recording device)
+# you can use 'deej.unmapped' to control all apps that aren't bound to any slider (this ignores master, system, mic and device-targeting sessions) (experimental)
+# windows only - you can use 'deej.current' to control the currently active app (whether full-screen or not) (experimental)
+# windows only - you can use a device's full name, i.e. "Speakers (Realtek High Definition Audio)", to bind it. this works for both output and input devices
+# windows only - you can use 'system' to control the "system sounds" volume
+# important: slider indexes start at 0, regardless of which analog pins you're using!
 slider_mapping:
   0: master
-  1: chrome.exe
-  2: spotify.exe
-  3:
-    - pathofexile_x64.exe
-    - rocketleague.exe
-  4: discord.exe
+  1: msedge.exe
+  2: discord.exe
+  3: deej.unmapped
+  4: 
 
 # set this to true if you want the controls inverted (i.e. top is 0%, bottom is 100%)
 invert_sliders: false
 
 # settings for connecting to the arduino board
-com_port: COM4
+com_port: COM6
 baud_rate: 9600
 
 # adjust the amount of signal noise reduction depending on your hardware quality
@@ -193,20 +201,8 @@ If you need any help with this, please [join our Discord server](https://discord
 
 [![Discord](https://img.shields.io/discord/702940502038937667?logo=discord)](https://discord.gg/nf88NJu)
 
-deej is a relatively new project, but a vibrant and awesome community is rapidly growing around it. Come hang out with us in the [deej Discord server](https://discord.gg/nf88NJu), or check out a whole bunch of cool and creative builds made by our members in the [community showcase](./community.md).
-
 The server is also a great place to ask questions, suggest features or report bugs (but of course, feel free to use GitHub if you prefer).
-
-### Donations
-
-If you love deej and want to show your support for this project, you can do so using the link below. Please don't feel obligated to donate - building the project and telling your friends about it goes a very long way! Thank you very much.
-
-[![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/omriharel)
-
-### Contributing
-
-Please see [`docs/CONTRIBUTING.md`](./docs/CONTRIBUTING.md).
 
 ## License
 
-deej is released under the [MIT license](./LICENSE).
+deej-Mereci is also released under the [MIT license](./LICENSE).
